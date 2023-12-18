@@ -125,6 +125,7 @@ export default defineComponent({
     handleDrop(coordinates: Coordinates) {
       this.coordinates = coordinates;
       this.isDragging = false;
+      console.warn(`Координаты -> X: ${coordinates.x}, Y: ${coordinates.y}`);
     },
 
     handleMouseMove(event: MouseEvent) {
@@ -215,7 +216,7 @@ export default defineComponent({
   border: 2px solid $color_primary;
   border-radius: 12px;
   position: relative;
-  user-select: none;
+  pointer-events: all;
 
   &__dot {
     --_width: v-bind(BALL_SIZE);
@@ -227,6 +228,7 @@ export default defineComponent({
     left: 0;
     top: 0;
     cursor: grab;
+    user-select: none;
 
     &:active {
       cursor: move;
